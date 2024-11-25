@@ -1,17 +1,25 @@
 import React from "react";
 import Navigation from "../components/Navigation";
+import Logo from "../components/Logo";
 
 const About = () => {
   return (
     <div>
+      <Logo />
       <Navigation />
       <h1>About</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
         quibusdam, voluptatibus, quos, quod natus dolorum quia quae repellendus
         quae, aspernatur quia. Quisquam quibusdam, voluptatibus, quos, quod
-        natus dolorum quia quae repellend
+        natus dolorum quia quae repellend us quae, aspernatur quia. Quisquam
+        quibusdam, voluptatibus, quos, quod natus dolorum quia quae repellendus
+        quae, aspernatur quia. Quisquam quibusdam, voluptatibus, quos, quod
+        natus dolorum quia quae repellendus quae, aspernatur quia. Quisquam
+        quibusdam, voluptatibus, quos, quod natus dolorum quia quae repellendus
+        quae, aspernatur quia. Quisquam quibusdam, voluptatibus, quos, quod
       </p>
+      <br />
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe corrupti
         illum unde earum non suscipit, dolorem enim aliquid quidem. Nisi, earum.
