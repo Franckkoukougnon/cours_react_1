@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useState } from "react";
 import Cards from "./Cards";
 
 const Countries = () => {
   const [data, setData] = useState([]); // Crée un état pour les pays
   const [loading, setLoading] = useState(true); // Crée un état pour le chargement
+  const [rangeValue, setRangeValue] = useState(20); // Crée un état pour la valeur du range
+  const continent = ["Africa", "Europe", "Asia", "Oceania", "America"];
+  const [selectedRadio, setSelectedRadio] = useState("");
+
   // utilise Axios pour importer les pays
   useEffect(() => {
     axios
@@ -25,12 +28,37 @@ const Countries = () => {
   }
   return (
     <div className="countries">
-      <h1>Countries</h1>
+      <ul className="radio-container">
+        <input
+          type="range"
+          min="1"
+          max="250"
+          defaultValue={rangeValue}
+          onChange={(e) => setRangeValue(e.target.value)}
+        />
+        {continent.map((continent, index) => {
+          return (
+            <li key={index}>
+              <input
+                type="radio"
+                id={continent}
+                name="continent"
+                value={continent}
+                onChange={(e) => setSelectedRadio(e.target.id)}
+              />
+              <label htmlFor={continent}>{continent}</label>
+            </li>
+          );
+        })}
+      </ul>
 
       <ul>
-        {data.map((country, index) => {
-          return <Cards key={index} country={country} />;
-        })}
+        {data
+          .filter((country) => country.region.includes(selectedRadio))
+          .slice(0, rangeValue)
+          .map((country, index) => {
+            return <Cards key={index} country={country} />;
+          })}
       </ul>
     </div>
   );
