@@ -11,16 +11,10 @@ const Countries = () => {
 
   // utilise Axios pour importer les pays
   useEffect(() => {
-    axios
-      .get("https://restcountries.com/v3.1/all")
-      .then((response) => {
-        setData(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log("Erreur lors de la récupération des pays" + error);
-        setLoading(false);
-      });
+    axios.get("https://restcountries.com/v3.1/all").then((response) => {
+      setData(response.data);
+      setLoading(false);
+    });
   }, []);
 
   if (loading) {
